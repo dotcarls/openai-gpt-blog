@@ -1,0 +1,13 @@
+header, footer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+main {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    overflow: auto;
+}
