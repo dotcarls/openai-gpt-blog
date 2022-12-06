@@ -6,8 +6,8 @@ const BlogPostPage = ({ post }) => (
     <p>{post.summary}</p>
     <p>{post.content}</p>
 
-    {/* Update the Link component to include the openai-gpt-blog path */}
-    <Link href="/openai-gpt-blog/[slug]" as={`/openai-gpt-blog/${post.slug}`}>
+    {/* Update the Link component to include the blog-post-* file name in the `as` attribute */}
+    <Link href="/openai-gpt-blog/blog-post-1.html" as={`/openai-gpt-blog/blog-post-${post.slug}.html`}>
       <a>Read more</a>
     </Link>
   </Layout>
