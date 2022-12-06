@@ -1,0 +1,16 @@
+<h1>My Blog</h1>
+
+<!-- Pagination controls -->
+<button>Previous</button>
+<button>Next</button>
+
+<!-- Blog post list -->
+<ul>
+  {{#posts}}
+    <li>
+      <h2>{{ title }}</h2>
+      <p>by {{ author }} on {{ date }}</p>
+      <p>{{ summary }}</p>
+    </li>
+  {{/posts}}
+</ul>
