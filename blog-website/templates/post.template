@@ -1,5 +1,6 @@
 <article>
   <h1>{{ title }}</h1>
+  <p>This content was generated using the OpenAI ChatGPT tool.</p>
   <p>by {{ author }} on {{ date }}</p>
   <p>{{ summary }}</p>
   <p>Tags: {{ tags }}</p>
