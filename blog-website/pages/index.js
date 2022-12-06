@@ -7,36 +7,17 @@ const layout = fs.readFileSync(path.join(__dirname, '../templates/layout.templat
 // Import the post-list template
 const postList = fs.readFileSync(path.join(__dirname, '../templates/post-list.template'), 'utf8');
 
-// Define the list of blog posts
-const posts = [
-  {
-    title: 'My First Blog Post',
-    author: 'Jane Doe',
-    date: 'January 01, 2021',
-    summary: 'In this post, I discuss the topic of my first blog post.'
-  },
-  {
-    title: 'My Second Blog Post',
-    author: 'Jane Doe',
-    date: 'January 02, 2021',
-    summary: 'In this post, I discuss the topic of my second blog post.'
-  }
-];
+// Read the MDX files from the blog directory
+const mdxFiles = fs.readdirSync(path.join(__dirname, '../blog')).filter(file => file.endsWith('.mdx'));
 
-// Define the content for the page
-const content = postList.replace('{{#posts}}', posts.map(post => {
-  return `
-    <li>
-      <h2>${post.title}</h2>
-      <p>by ${post.author} on ${post.date}</p>
-      <p>${post.summary}</p>
-    </li>
-  `;
-}).join(''))
-.replace('{{/posts}}', '');
+// Generate the list of blog posts from the content of the MDX files
+const posts = mdxFiles.map(file => {
+  // Read the contents of the MDX file
+  const mdx = fs.readFileSync(path.join(__dirname, '../blog', file), 'utf8');
 
-// Render the page
-const html = layout.replace('{{ content }}', content);
+  // Parse the frontmatter from the MDX file
+  const frontmatter = mdx.match(/^---\n([\s\S]*?)\n---\n/);
 
-// Write the rendered HTML to the dist/index.html file
-fs.writeFileSync(path.join(__dirname, '../dist/index.html'), html);
+  // Parse the attributes from the frontmatter
+  const attributes = frontmatter[1].split('\n').reduce((attrs, line) => {
+    const [key, value
