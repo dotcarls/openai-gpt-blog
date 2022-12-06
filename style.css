@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: #111;
+  }
+  
+  a {
+    color: #00f;
+    text-decoration: none;
+  }
+  
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 1px solid #333;
+  }
+  
+  p, ul, ol {
+    font-size: 1em;
+    margin: 0 0 1em;
+  }
+  
+  ul, ol {
+    margin: 0 0 1em 2em;
+  }
+  
+  li {
+    margin: 0 0 0.5em;
+  }
+  
+  header,
+  main,
+  footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+  
+  header {
+    margin-bottom: 1em;
+  }
+  
+  main {
+    margin-bottom: 2em;
+  }
+  
+  footer {
+    font-size: 0.8em;
+    color: #666;
+  }
