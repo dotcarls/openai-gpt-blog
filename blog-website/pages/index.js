@@ -36,4 +36,7 @@ const content = postList.replace('{{#posts}}', posts.map(post => {
 .replace('{{/posts}}', '');
 
 // Render the page
-console.log(layout.replace('{{ content }}', content));
+const html = layout.replace('{{ content }}', content);
+
+// Write the rendered HTML to the dist/index.html file
+fs.writeFileSync(path.join(__dirname, '../dist/index.html'), html);
